@@ -26,3 +26,22 @@ jobs:
       
     - name: Docker push
       run: docker push eddi3as/hosted-runner:latest
+
+  deploy:
+    runs-on: [self-hosted, ubuntu-22.04]  # Ensure this matches the label of your self-hosted runner
+    needs: build  # Ensures that the build job is completed before this job runs
+    steps:
+      - name: Docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+          DOCKER_PSWD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PSWD
+
+      - name: Pull Docker Image
+        run: |
+          docker pull eddi3as/hosted-runner:latest
+
+      - name: Run the pulled image (optional)
+        run: |
+          docker run -d --name hosted-runner eddi3as/hosted-runner:latest
