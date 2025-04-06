@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  test-runner:
+    image: eddi3as/hosted-runner:latest
+    container_name: runner-test
+    ports: 
+      - "8080:8080"
