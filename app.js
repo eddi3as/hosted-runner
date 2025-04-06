@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-res.send('Hello World from test app');
+res.send('Test of auto-deploy');
 });
 
 const PORT = process.env.PORT || 5000;
