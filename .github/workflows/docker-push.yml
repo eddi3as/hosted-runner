@@ -40,8 +40,10 @@ jobs:
 
       - name: Pull Docker Image
         run: |
-          sudo docker pull eddi3as/hosted-runner:latest
+          echo "esc218485" | sudo -S docker pull eddi3as/hosted-runner:latest
 
       - name: Run the pulled image (optional)
         run: |
-          sudo docker run -d --name hosted-runner -p 80:5000 eddi3as/hosted-runner:latest
+          echo "esc218485" | sudo -S docker stop hosted-runner
+          echo "esc218485" | sudo -S docker rm hosted-runner
+          echo "esc218485" | sudo -S docker run -d --name hosted-runner -p 80:5000 eddi3as/hosted-runner:latest
