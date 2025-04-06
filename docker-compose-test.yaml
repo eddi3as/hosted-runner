@@ -5,4 +5,4 @@ services:
     image: eddi3as/hosted-runner:latest
     container_name: runner-test
     ports: 
-      - "8080:8080"
+      - "5000:5000"
