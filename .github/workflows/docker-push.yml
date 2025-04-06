@@ -44,4 +44,4 @@ jobs:
 
       - name: Run the pulled image (optional)
         run: |
-          docker run -d --name hosted-runner eddi3as/hosted-runner:latest
+          sudo docker run -d --name hosted-runner eddi3as/hosted-runner:latest
