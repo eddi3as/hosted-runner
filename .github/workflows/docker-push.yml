@@ -28,7 +28,7 @@ jobs:
       run: docker push eddi3as/hosted-runner:latest
 
   deploy:
-    runs-on: [self-hosted]  # Ensure this matches the label of your self-hosted runner
+    runs-on: self-hosted
     needs: build  # Ensures that the build job is completed before this job runs
     steps:
       - name: Docker login
